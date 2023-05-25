@@ -1,0 +1,7 @@
+{
+  "name": "WhichDoorBest",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
