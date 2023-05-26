@@ -40,6 +40,11 @@ const StationsSelector = ({
       return
     }
 
+    if (source.name === destination.name) {
+      setError('Unable to route. Both stations cannot be the same.')
+      return
+    }
+
     push(`/route/${normalizeStationName(source.name)}/${normalizeStationName(destination.name)}`)
   }
 

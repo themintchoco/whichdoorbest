@@ -110,6 +110,7 @@ export default function Route({
   }
 
   if (sourceStations.length === 0 || destinationStations.length === 0) notFound()
+  if (sourceStations[0].id === destinationStations[0].id) notFound()
 
   const routePath = route(sourceStations, destinationStations)
 
