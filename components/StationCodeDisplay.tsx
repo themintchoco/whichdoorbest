@@ -8,7 +8,7 @@ const lineColors = {
   [Line.NS]: 'bg-ns',
   [Line.NE]: 'bg-ne',
   [Line.CC]: 'bg-cc',
-  [Line.CE]: 'bg-cc', 
+  [Line.CE]: 'bg-cc',
   [Line.DT]: 'bg-dt',
   [Line.TE]: 'bg-te',
 }

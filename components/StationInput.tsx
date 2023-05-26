@@ -12,7 +12,7 @@ export interface StationInputProps extends React.InputHTMLAttributes<HTMLInputEl
   onSuggestionAccepted?: (station: Station) => void
 }
 
-const StationInput = forwardRef(({
+const StationInput = ({
   stations,
   onStationChange,
   onSuggestionAccepted,
@@ -25,7 +25,7 @@ const StationInput = forwardRef(({
 
   useEffect(() => {
     onStationChange?.(station)
-  }, [station])
+  }, [station, onStationChange])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
@@ -57,7 +57,7 @@ const StationInput = forwardRef(({
           <input type="text" className="w-full text-xl text-slate-600 bg-transparent outline-none pr-6 py-4" value={value} onChange={handleChange} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} ref={ref} {...props} />
         </div>
       </div>
-      
+
       {
         focused && value.length > 0 && (
           <div className="flex flex-nowrap items-center overflow-x-auto px-5 py-4 -mx-4">
@@ -65,7 +65,7 @@ const StationInput = forwardRef(({
               stations
                 .flatMap((station) => {
                   const index = normalizeStationName(station.name).indexOf(normalizeStationName(value))
-              
+
                   return index == -1 ? [] : {
                     station,
                     index,
@@ -84,6 +84,6 @@ const StationInput = forwardRef(({
       }
     </>
   )
-})
+}
 
-export default StationInput
+export default forwardRef(StationInput)

@@ -164,13 +164,13 @@ export default function Route({
             message += '. '
 
             return idx < routePath.length - 1 ? (
-              <RouteCard station={station} key={platformId}>{ message }</RouteCard> 
+              <RouteCard station={station} key={platformId}>{ message }</RouteCard>
             ) : (
               <Fragment key={platformId}>
                 <RouteCard station={station}>{ message }</RouteCard>
                 <RouteCard station={transferStation}>
-                  Arrive at { transferStation.name }. 
-                  
+                  Arrive at { transferStation.name }.
+
                   {
                     Object.entries(transferPlatformData.doors.escalators.others ?? {}).map(([key, value]) => (
                       <div className="flex justify-between text-md text-slate-600 bg-slate-200 rounded-lg px-3 py-2 mt-3 -mx-2" key={key}>
