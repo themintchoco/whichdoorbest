@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import { ArrowUpOnSquareIcon, ChevronLeftIcon } from '@heroicons/react/24/outline'
@@ -17,9 +17,10 @@ const NavBar = ({
   destinationStation,
 } : NavBarProps) => {
   const router = useRouter()
+  const pathname = usePathname()
 
   const shareData = {
-    url: location.href,
+    url: pathname,
     title: `${sourceStation.name} to ${destinationStation.name} | WhichDoorBest`,
   }
 
