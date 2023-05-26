@@ -10,6 +10,7 @@ import platformsData from '@/data/platforms.json'
 import stationsData from '@/data/stations.json'
 import terminationsData from '@/data/terminations.json'
 
+import NavBar from '@/components/NavBar'
 import RouteCard from '@/components/RouteCard'
 import normalizeStationName from '@/utils/normalizeStationName'
 import stationFromData from '@/utils/stationFromData'
@@ -20,7 +21,6 @@ type StationData = typeof stationsData[number]
 export const metadata: Metadata = {
   themeColor: '#6366f1',
 }
-
 interface QueueItem {
   platformId: number,
   distance: number,
@@ -118,17 +118,7 @@ export default function Route({
 
   return (
     <div className="min-h-[100svh]">
-      <div className="sticky top-0 w-[100dvw] text-indigo-50 bg-indigo-500 drop-shadow-[0_5px_rgba(30,27,75,0.75)]">
-        <div className="flex items-center justify-between font-medium max-w-3xl px-4 py-2 mx-auto">
-          <div className="basis-0 grow text-center bg-white/20 px-4 py-2 rounded-xl">
-            { stationFromData(sourceStations[0]).name }
-          </div>
-          <span className="px-2">-&gt;</span>
-          <div className="basis-0 grow text-center bg-white/20 px-4 py-2 rounded-xl">
-            { stationFromData(destinationStations[0]).name }
-          </div>
-        </div>
-      </div>
+      <NavBar sourceStation={stationFromData(sourceStations[0])} destinationStation={stationFromData(destinationStations[0])} />
 
       <div className="max-w-3xl mx-auto">
         {

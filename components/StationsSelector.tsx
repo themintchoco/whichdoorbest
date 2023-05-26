@@ -14,7 +14,7 @@ export interface StationsSelectorProps {
 const StationsSelector = ({
   stations,
 } : StationsSelectorProps) => {
-  const { push } = useRouter()
+  const router = useRouter()
 
   const [source, setSource] = useState<Station | null>(null)
   const [destination, setDestination] = useState<Station | null>(null)
@@ -45,7 +45,7 @@ const StationsSelector = ({
       return
     }
 
-    push(`/route/${normalizeStationName(source.name)}/${normalizeStationName(destination.name)}`)
+    router.push(`/route/${normalizeStationName(source.name)}/${normalizeStationName(destination.name)}`)
   }
 
   return (
