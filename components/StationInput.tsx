@@ -54,7 +54,7 @@ const StationInput = ({
         </div>
 
         <div className="grow-1">
-          <input type="text" className="w-full text-xl text-slate-600 bg-transparent outline-none pr-6 py-4" value={value} onChange={handleChange} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} ref={ref} {...props} />
+          <input type="text" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" className="w-full text-xl text-slate-600 bg-transparent outline-none pr-6 py-4" value={value} onChange={handleChange} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} ref={ref} {...props} />
         </div>
       </div>
 
